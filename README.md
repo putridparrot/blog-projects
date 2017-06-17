@@ -1,2 +1,3 @@
 # blog-projects
-Test/Sample projects for my blog posts
+
+This repository is used to store test/sample projects related to my blog posts (http://www.putridparrot.com/blog). 
