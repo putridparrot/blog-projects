@@ -1,6 +1,10 @@
 package com.putridparrot;
 
+import io.vertx.config.ConfigRetriever;
+import io.vertx.config.ConfigRetrieverOptions;
+import io.vertx.config.ConfigStoreOptions;
 import io.vertx.core.AbstractVerticle;
+import io.vertx.core.json.JsonObject;
 import io.vertx.ext.web.Router;
 import io.vertx.servicediscovery.Record;
 import io.vertx.servicediscovery.ServiceDiscovery;
@@ -13,6 +17,7 @@ import org.slf4j.LoggerFactory;
 public class WorldVerticle extends AbstractVerticle {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(WorldVerticle.class);
+    private static final String ROOT = "/world";
 
     private final Router router;
     private ServiceDiscovery discovery;
@@ -25,42 +30,48 @@ public class WorldVerticle extends AbstractVerticle {
     @Override
     public void start() {
 
-        discovery = new DiscoveryImpl(vertx,
-                new ServiceDiscoveryOptions());
-
-        router.route("/world").handler(ctx -> {
-
-            LOGGER.debug("World called");
-
-            vertx.eventBus()
-                .publish("/svc", "World Service");
-
-            ctx.response()
-                    .putHeader("content-type", "text/plain")
-                    .end("World " + ctx.queryParam("name"));
-        });
-
-        Record record = HttpEndpoint.createRecord(
-                "world-service",
-                "localhost",
-                8080,
-                "/world");
-
-        discovery.publish(record, ar ->
+        SharedVerticle
+                .configuration(vertx)
+                .setHandler(ar ->
         {
-            if (ar.succeeded()) {
-                // publication success
-                publishedRecord = ar.result();
-            } else {
-                // publication failure
+            if(ar.succeeded()) {
+                JsonObject o  = ar.result();
+                int port = o.getInteger("world.port", 8080);
+
+                router.route(ROOT).handler(ctx -> {
+
+                    LOGGER.debug("World called");
+
+                    vertx.eventBus()
+                            .publish(SharedVerticle.SVC_BUS, "World Service");
+
+                    ctx.response()
+                            .putHeader("content-type", "text/plain")
+                            .end("World " + ctx.queryParam("name"));
+                });
+
+                discovery = new DiscoveryImpl(vertx,
+                        new ServiceDiscoveryOptions());
+
+                SharedVerticle.expose(discovery,
+                        "hello-service",
+                        "localhost",
+                        port,
+                        ROOT)
+                        .setHandler(r ->
+                        {
+                            if(r.succeeded()) {
+                                publishedRecord = r.result();
+                            }
+                        });
+
+                vertx.createHttpServer()
+                        .requestHandler(router::accept)
+                        .listen(port);
+
+                LOGGER.info("HTTP \"World\" server started on port " + port);
             }
         });
-
-        vertx.createHttpServer()
-                .requestHandler(router::accept)
-                .listen(8080);
-
-        LOGGER.info("HTTP \"World\" server started on port 8080");
     }
 
     @Override
