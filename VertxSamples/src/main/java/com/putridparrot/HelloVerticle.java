@@ -22,6 +22,9 @@ public class HelloVerticle extends AbstractVerticle {
 
             LOGGER.debug("Hello called");
 
+            vertx.eventBus()
+                .publish("/svc", "Hello Service");
+
             ctx.response()
                     .putHeader("content-type", "text/plain")
                     .end("Hello " + ctx.queryParam("name"));

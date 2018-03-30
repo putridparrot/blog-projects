@@ -22,6 +22,9 @@ public class WorldVerticle extends AbstractVerticle {
 
             LOGGER.debug("World called");
 
+            vertx.eventBus()
+                .publish("/svc", "World Service");
+
             ctx.response()
                     .putHeader("content-type", "text/plain")
                     .end("World " + ctx.queryParam("name"));
