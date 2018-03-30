@@ -49,7 +49,7 @@ public class HelloVerticle extends AbstractVerticle {
                 discovery = new DiscoveryImpl(vertx,
                          new ServiceDiscoveryOptions());
 
-                SharedVerticle.expose(discovery,
+                SharedVerticle.publish(discovery,
                         "hello-service",
                         "localhost",
                         port,
@@ -72,19 +72,6 @@ public class HelloVerticle extends AbstractVerticle {
 
     @Override
     public void stop() {
-        if(discovery != null) {
-            discovery.unpublish(publishedRecord.getRegistration(), ar ->
-            {
-                if (ar.succeeded()) {
-                    // Success
-                } else {
-                    // cannot unpublish the service,
-                    // may have already been removed,
-                    // or the record is not published
-                }
-            });
-
-            discovery.close();
-        }
+        SharedVerticle.unpublish(discovery, publishedRecord);
     }
 }

@@ -10,9 +10,6 @@ import io.vertx.servicediscovery.Record;
 import io.vertx.servicediscovery.ServiceDiscovery;
 import io.vertx.servicediscovery.types.HttpEndpoint;
 
-import javax.xml.ws.Service;
-
-
 public final class SharedVerticle {
 
     public static final String SVC_BUS = "/svc";
@@ -35,7 +32,7 @@ public final class SharedVerticle {
         return f;
     }
 
-    public static Future<Record> expose(ServiceDiscovery serviceDiscovery,
+    public static Future<Record> publish(ServiceDiscovery serviceDiscovery,
         String name, String host, int port, String root) {
 
         Future<Record> f = Future.future();
@@ -49,5 +46,24 @@ public final class SharedVerticle {
         serviceDiscovery.publish(record, f.completer());
 
         return f;
+    }
+
+    public static void unpublish(ServiceDiscovery serviceDiscovery, Record publishedRecord) {
+        if(serviceDiscovery != null) {
+            if(publishedRecord != null) {
+                serviceDiscovery.unpublish(publishedRecord.getRegistration(), ar ->
+                {
+                    if (ar.succeeded()) {
+                        // Success
+                    } else {
+                        // cannot unpublish the service,
+                        // may have already been removed,
+                        // or the record is not published
+                    }
+                });
+            }
+
+            serviceDiscovery.close();
+        }
     }
 }
