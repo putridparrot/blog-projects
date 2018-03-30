@@ -21,21 +21,25 @@ public class ClientVerticle extends AbstractVerticle {
             {
                 LOGGER.info("vertx.discovery.announce received");
 
-                ServiceDiscovery discovery = ServiceDiscovery.create(vertx);
+                JsonObject j = JsonObject.mapFrom(e.body());
+                if(j.getJsonObject("location").getString("root") == "/hello") {
 
-                discovery.getRecord(
-                    new JsonObject().put("name", "hello-service"), found -> {
-                        if(found.succeeded()) {
-                            Record match = found.result();
-                            ServiceReference reference = discovery.getReference(match);
-                            HttpClient client = reference.get();
+                    ServiceDiscovery discovery = ServiceDiscovery.create(vertx);
 
-                            client.getNow("/hello?name=Scooby", response ->
-                                response.bodyHandler(
-                                    body ->
-                                        LOGGER.info("Client respone: " + body.toString())));
-                            }
-                        });
+                    discovery.getRecord(
+                            new JsonObject().put("name", "hello-service"), found -> {
+                                if (found.succeeded()) {
+                                    Record match = found.result();
+                                    ServiceReference reference = discovery.getReference(match);
+                                    HttpClient client = reference.get();
+
+                                    client.getNow("/hello?name=Scooby", response ->
+                                        response.bodyHandler(
+                                            body ->
+                                                LOGGER.info("Client respone: " + body.toString())));
+                                }
+                            });
+                }
             });
     }
 }
