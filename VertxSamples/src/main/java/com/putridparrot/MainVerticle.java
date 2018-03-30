@@ -26,8 +26,11 @@ public class MainVerticle extends AbstractVerticle {
     private static void initialize(Vertx vertx) {
         Router router = Router.router(vertx);
 
-        vertx.deployVerticle(new HelloVerticle(router));
-        vertx.deployVerticle(new WorldVerticle(router));
+        vertx.deployVerticle(new ClientVerticle(), e ->
+                {
+                    vertx.deployVerticle(new HelloVerticle(router));
+                    vertx.deployVerticle(new WorldVerticle(router));
+                });
 
         EventBus eventBus = vertx.eventBus();
         eventBus.consumer("/svc", handler ->
