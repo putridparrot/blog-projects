@@ -24,7 +24,7 @@ public class ClientVerticle extends AbstractVerticle {
                 JsonObject j = JsonObject.mapFrom(e.body());
                 if(j.getJsonObject("location").getString("root") == "/hello") {
 
-                    ServiceDiscovery discovery = ServiceDiscovery.create(vertx);
+                    ServiceDiscovery discovery = SharedVerticle.createServiceDiscovery(vertx);
 
                     discovery.getRecord(
                             new JsonObject().put("name", "hello-service"), found -> {
@@ -33,10 +33,14 @@ public class ClientVerticle extends AbstractVerticle {
                                     ServiceReference reference = discovery.getReference(match);
                                     HttpClient client = reference.get();
 
+                                    LOGGER.info("Service successfully located");
                                     client.getNow("/hello?name=Scooby", response ->
                                         response.bodyHandler(
                                             body ->
                                                 LOGGER.info("Client respone: " + body.toString())));
+                                }
+                                else {
+                                    LOGGER.info("Service failure");
                                 }
                             });
                 }

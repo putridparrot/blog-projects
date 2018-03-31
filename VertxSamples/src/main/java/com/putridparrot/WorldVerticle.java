@@ -47,20 +47,6 @@ public class WorldVerticle extends AbstractVerticle {
                             .end("World " + ctx.queryParam("name"));
                 });
 
-                discovery = new DiscoveryImpl(vertx,
-                        new ServiceDiscoveryOptions());
-
-                SharedVerticle.publish(discovery,
-                        "hello-service",
-                        "localhost",
-                        port,
-                        ROOT)
-                        .setHandler(r ->
-                        {
-                            if(r.succeeded()) {
-                                publishedRecord = r.result();
-                            }
-                        });
 
                 vertx.createHttpServer()
                         .requestHandler(router::accept)
@@ -68,6 +54,21 @@ public class WorldVerticle extends AbstractVerticle {
                         {
                             if(l.succeeded()) {
                                 LOGGER.info("HTTP \"World\" server started on port " + port);
+
+                                discovery = SharedVerticle.createServiceDiscovery(vertx);
+
+                                SharedVerticle.publish(discovery,
+                                        "hello-service",
+                                        "localhost",
+                                        port,
+                                        ROOT)
+                                        .setHandler(r ->
+                                        {
+                                            if(r.succeeded()) {
+                                                publishedRecord = r.result();
+                                            }
+                                        });
+
                                 future.succeeded();
                             }
                             else {

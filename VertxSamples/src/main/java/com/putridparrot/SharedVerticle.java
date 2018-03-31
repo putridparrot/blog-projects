@@ -8,11 +8,26 @@ import io.vertx.core.Vertx;
 import io.vertx.core.json.JsonObject;
 import io.vertx.servicediscovery.Record;
 import io.vertx.servicediscovery.ServiceDiscovery;
+import io.vertx.servicediscovery.ServiceDiscoveryOptions;
+import io.vertx.servicediscovery.impl.DiscoveryImpl;
 import io.vertx.servicediscovery.types.HttpEndpoint;
+import io.vertx.servicediscovery.zookeeper.ZookeeperServiceImporter;
 
 public final class SharedVerticle {
 
     public static final String SVC_BUS = "/svc";
+
+    public static ServiceDiscovery createServiceDiscovery(Vertx vertx) {
+        // docker run --name zookeeper --restart always -d zookeeper
+        return ServiceDiscovery.create(vertx)
+                .registerServiceImporter(new ZookeeperServiceImporter(),
+                        new JsonObject()
+                            .put("connection", "172.17.0.2:2181")
+                            .put("basePath", "/services/hello-service"));
+
+//        return new DiscoveryImpl(vertx,
+//                new ServiceDiscoveryOptions());
+    }
 
     public static Future<JsonObject> configuration(Vertx vertx) {
 
