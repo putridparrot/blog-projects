@@ -1,6 +1,7 @@
 package com.putridparrot;
 
 import io.vertx.core.AbstractVerticle;
+import io.vertx.core.Future;
 import io.vertx.core.json.JsonObject;
 import io.vertx.ext.web.Router;
 import io.vertx.servicediscovery.Record;
@@ -24,7 +25,7 @@ public class WorldVerticle extends AbstractVerticle {
     }
 
     @Override
-    public void start() {
+    public void start(Future<Void> future) {
 
         SharedVerticle
                 .configuration(vertx)
@@ -63,10 +64,17 @@ public class WorldVerticle extends AbstractVerticle {
 
                 vertx.createHttpServer()
                         .requestHandler(router::accept)
-                        .listen(port);
-
-                LOGGER.info("HTTP \"World\" server started on port " + port);
-            }
+                        .listen(port, l ->
+                        {
+                            if(l.succeeded()) {
+                                LOGGER.info("HTTP \"World\" server started on port " + port);
+                                future.succeeded();
+                            }
+                            else {
+                                future.fail(l.cause());
+                            }
+                        });
+             }
         });
     }
 
