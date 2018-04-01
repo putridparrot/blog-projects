@@ -1,0 +1,3 @@
+#parse("templates/salutation.txt.vm")
+
+This is a $template_name template.
