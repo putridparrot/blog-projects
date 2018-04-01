@@ -1,0 +1,7 @@
+Hello $name,
+
+My templates
+
+#foreach( $t in $template_name)
+    * $t
+#end
