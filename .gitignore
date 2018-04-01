@@ -3,3 +3,11 @@
 /DragAndDropBehavior/DragAndDropBehavior/bin
 /DragAndDropBehaviorWithPaste/DragAndDropBehavior/obj
 /DragAndDropBehaviorWithPaste/DragAndDropBehavior/bin
+/CucumberSamples/.idea
+/CucumberSamples/target
+/CucumberSamples/*.iml
+/ScalaTests/.idea
+/ScalaTests/project
+/ScalaTests/target
+/VelocitySamples/.idea
+/VelocitySamples/*.iml
