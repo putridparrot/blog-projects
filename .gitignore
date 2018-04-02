@@ -32,3 +32,5 @@
 /cxfws/.idea
 /cxfws/target
 /cxfws/*.iml
+/SuaveTest/SuaveTest/bin
+/SuaveTest/SuaveTest/obj
