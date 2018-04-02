@@ -49,3 +49,9 @@
 /RefitExample/RefitExample/RefitExample.Tests/obj
 /RefitExample/RefitExample/RefitExample/bin
 /RefitExample/RefitExample/RefitExample/obj
+/RabbitMQSample/RabbitMQReceive/packages
+/RabbitMQSample/RabbitMQReceive/RabbitMQReceive/obj
+/RabbitMQSample/RabbitMQReceive/RabbitMQReceive/bin
+/RabbitMQSample/RabbitMQSend/packages
+/RabbitMQSample/RabbitMQSend/RabbitMQSend/obj
+/RabbitMQSample/RabbitMQSend/RabbitMQSend/bin
