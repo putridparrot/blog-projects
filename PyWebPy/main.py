@@ -1,5 +1,7 @@
 import web
 
+# see http://webpy.org/cookbook/url_handling
+
 urls = (
     '/hello/(.*)', 'hello',
     '/index/(.*)', 'index'

@@ -21,3 +21,8 @@
 /CxfClient/*.iml
 /CxfClient/target
 /GoRESTWithMux/.idea
+/PyWebPy/.idea
+/PyWebPy/venv
+/PyWebPy/__pycache__
+/PyBottle/.idea
+/PyBottle/venv
