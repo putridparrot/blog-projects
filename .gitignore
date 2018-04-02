@@ -14,3 +14,8 @@
 /GiraffeTest/GiraffeTest/bin
 /GiraffeTest/GiraffeTest/obj
 /GiraffeTest/.vs/GiraffeTest/v15/*.suo
+/CxfServer/.idea
+/CxfServer/target
+/CxfServer/*.iml
+/CxfClient/.idea
+/CxfClient/*.iml
