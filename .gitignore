@@ -26,3 +26,6 @@
 /PyWebPy/__pycache__
 /PyBottle/.idea
 /PyBottle/venv
+/KestrelTest/KestrelTest/bin
+/KestrelTest/KestrelTest/obj
+.vs
