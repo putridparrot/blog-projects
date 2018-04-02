@@ -20,3 +20,4 @@
 /CxfClient/.idea
 /CxfClient/*.iml
 /CxfClient/target
+/GoRESTWithMux/.idea
