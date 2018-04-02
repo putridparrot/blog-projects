@@ -29,3 +29,6 @@
 /KestrelTest/KestrelTest/bin
 /KestrelTest/KestrelTest/obj
 .vs
+/cxfws/.idea
+/cxfws/target
+/cxfws/*.iml

@@ -15,6 +15,8 @@
         <cxf.version>3.0.1</cxf.version>
         <spring.version>4.1.0.RELEASE</spring.version>
         <jetty.version>9.4.2.v20170220</jetty.version>
+        <json.version>1.1.0-M1</json.version>
+        <glassfish.version>1.0.4</glassfish.version>
     </properties>
 
     <dependencies>
@@ -53,6 +55,30 @@
             <groupId>org.eclipse.jetty</groupId>
             <artifactId>jetty-servlet</artifactId>
             <version>${jetty.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>javax.json</groupId>
+            <artifactId>javax.json-api</artifactId>
+            <version>${json.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.cxf</groupId>
+            <artifactId>cxf-rt-frontend-jaxrs</artifactId>
+            <version>${cxf.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.cxf</groupId>
+            <artifactId>cxf-rt-rs-extension-providers</artifactId>
+            <version>${cxf.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.glassfish</groupId>
+            <artifactId>javax.json</artifactId>
+            <version>${glassfish.version}</version>
         </dependency>
     </dependencies>
 
