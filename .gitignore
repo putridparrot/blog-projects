@@ -11,3 +11,6 @@
 /ScalaTests/target
 /VelocitySamples/.idea
 /VelocitySamples/*.iml
+/GiraffeTest/GiraffeTest/bin
+/GiraffeTest/GiraffeTest/obj
+/GiraffeTest/.vs/GiraffeTest/v15/*.suo
