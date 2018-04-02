@@ -19,3 +19,4 @@
 /CxfServer/*.iml
 /CxfClient/.idea
 /CxfClient/*.iml
+/CxfClient/target
