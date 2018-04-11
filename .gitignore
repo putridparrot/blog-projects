@@ -55,3 +55,6 @@
 /RabbitMQSample/RabbitMQSend/packages
 /RabbitMQSample/RabbitMQSend/RabbitMQSend/obj
 /RabbitMQSample/RabbitMQSend/RabbitMQSend/bin
+/JMockSample/.idea
+/JMockSample/target
+/JMockSample/*.iml
