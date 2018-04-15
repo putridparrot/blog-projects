@@ -58,3 +58,6 @@
 /JMockSample/.idea
 /JMockSample/target
 /JMockSample/*.iml
+/MinimalRunner/.idea
+/MinimalRunner/*.iml
+/MinimalRunner/target
