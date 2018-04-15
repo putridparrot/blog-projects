@@ -61,3 +61,11 @@
 /MinimalRunner/.idea
 /MinimalRunner/*.iml
 /MinimalRunner/target
+/RemotingSample/RemoteClient/bin
+/RemotingSample/RemoteClient/obj
+/RemotingSample/RemoteServer/bin
+/RemotingSample/RemoteServer/obj
+/FoldingExp/.idea
+/FoldingExp/cmake-build-debug
+/ThreadsPromisesFutures/cmake-build-debug
+/ThreadsPromisesFutures/.idea
