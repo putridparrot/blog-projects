@@ -71,3 +71,10 @@
 /ThreadsPromisesFutures/.idea
 /LottieTest/LottieTest/bin
 /LottieTest/LottieTest/obj
+/AppCentreExample/AppCentreExample/AppCentreExample.Android/bin
+/AppCentreExample/AppCentreExample/AppCentreExample.Android/obj
+/AppCentreExample/AppCentreExample/AppCentreExample.iOS/bin
+/AppCentreExample/AppCentreExample/AppCentreExample.iOS/obj
+/AppCentreExample/AppCentreExample/AppCentreExample.UWP/bin
+/AppCentreExample/AppCentreExample/AppCentreExample.UWP/obj
+/AppCentreExample/AppCentreExample/AppCentreExample.Android/*.user
