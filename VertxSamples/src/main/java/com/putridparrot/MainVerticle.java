@@ -30,6 +30,7 @@ public class MainVerticle extends AbstractVerticle {
             {
                 vertx.deployVerticle(new HelloVerticle(router));
                 vertx.deployVerticle(new WorldVerticle(router));
+                vertx.deployVerticle(new HysterixDashboardVerticle(router));
             });
 
         EventBus eventBus = vertx.eventBus();
