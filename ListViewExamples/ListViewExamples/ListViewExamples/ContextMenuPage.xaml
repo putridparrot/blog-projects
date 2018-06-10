@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ListViewExamples.ContextMenuPage">
+    <ContentPage.Content>
+        <ListView ItemsSource="{Binding Items}" 
+                  IsPullToRefreshEnabled="True" 
+                  RefreshCommand="{Binding RefreshCommand}"
+                  IsRefreshing="{Binding IsRefreshing}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <ViewCell.ContextActions>
+                            <MenuItem Text="Delete" 
+                                      Command="{Binding DeleteCommand}" 
+                                      IsDestructive="True" />
+                        </ViewCell.ContextActions>
+                        <StackLayout VerticalOptions="Center">
+                            <Label Text="{Binding Value}" />
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </ContentPage.Content>
+</ContentPage>

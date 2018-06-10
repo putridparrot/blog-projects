@@ -78,3 +78,6 @@
 /AppCentreExample/AppCentreExample/AppCentreExample.UWP/bin
 /AppCentreExample/AppCentreExample/AppCentreExample.UWP/obj
 /AppCentreExample/AppCentreExample/AppCentreExample.Android/*.user
+*.user
+bin
+obj
