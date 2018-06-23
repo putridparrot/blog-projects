@@ -81,3 +81,4 @@
 *.user
 bin
 obj
+/ProtocolBuffers/CSharp/Server/packages

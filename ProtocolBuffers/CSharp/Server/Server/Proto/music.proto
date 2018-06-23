@@ -1,0 +1,42 @@
+﻿syntax = "proto3";
+
+package music;
+
+option java_package = "com.putridparrot.music";
+option csharp_namespace = "PutridParrot.Music";
+
+/*
+ Note definitions, where two letters are used,
+ the first denotes the # (sharp) and the second 
+ the b (flat)
+*/
+enum Note {
+   C = 0;
+   CD = 1;
+   D = 2;
+   DE = 3;
+   E = 4;
+   F = 5;
+   FG = 6;
+   G = 7;
+   GA = 8;
+   A = 9;
+   AB = 10;
+   B = 11;
+}
+
+message NotesRequest {
+   Note key = 1;
+   string name = 2;
+}
+
+message NotesResponse {
+	Note key = 1;
+	string name = 2;
+	repeated Note notes = 3;
+} 
+
+service MusicService {
+	rpc Query(NotesRequest) returns (NotesResponse) {
+	}
+}
