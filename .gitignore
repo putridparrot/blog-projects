@@ -82,3 +82,13 @@
 bin
 obj
 /ProtocolBuffers/CSharp/Server/packages
+/GraphQLTests/packages/System.Reactive.Linq.3.1.1
+/GraphQLTests/packages/GraphQL.0.14.6.657
+/GraphQLTests/packages/GraphQL.2.0.0-preview-997
+/GraphQLTests/packages/GraphQL.Annotations.1.0.5
+/GraphQLTests/packages/GraphQL-Parser.2.0.0
+/GraphQLTests/packages/GraphQL-Parser.3.0.0
+/GraphQLTests/packages/Newtonsoft.Json.9.0.1
+/GraphQLTests/packages/Newtonsoft.Json.10.0.3
+/GraphQLTests/packages/System.Reactive.Core.3.1.1
+/GraphQLTests/packages/System.Reactive.Interfaces.3.1.1
