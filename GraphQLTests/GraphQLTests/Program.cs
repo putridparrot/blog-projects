@@ -10,12 +10,14 @@ namespace GraphQLTests
         {
             var schema = Schema.For(@"
                 schema {
-                   root: QueryRoot
+                   query: QueryRoot
+                   mutation: QueryRoot
                 }
 
                 type QueryRoot {
                    artists: [Artist]
                    artist(name: String): Artist 
+                   add(name: String): Artist
                 }
 
                 type Artist {
@@ -32,13 +34,22 @@ namespace GraphQLTests
             });
 
 
-            var query = @"{
-                    artists {
-                        name
-                    }
-                }";
+            //var query = @"{
+            //        artists {
+            //            name
+            //        }
+            //    }";
+
+            // Adds Rush to the Artists
+            //var query = @"
+            //      mutation {
+            //         add(name: ""Rush"") { name }
+            //      }";
 
             //var query = "{ artist(name: \"Alice Cooper\") { name } }";
+
+            // get album titles for artist Alice Cooper
+            var query = "{ artist(name: \"Alice Cooper\") { name albums { title } } }";
 
             //var root = new QueryRoot();
 
