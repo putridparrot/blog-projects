@@ -1,0 +1,50 @@
+<template id="flashTextComponent">
+    <style>
+        .flashText {
+            float: left;
+            width: 152px;
+            background-color: red;
+            margin-bottom: 20px;
+        }
+
+        .flashText > .text {
+            color: #fff;
+            font-size: 15px;
+            width: 150px;
+            text-align: center;
+        }
+
+    </style>
+    <div class="flashText">
+        <div class="text"></div>
+    </div>
+</template>
+<script>
+    var template = document.createElement('template');
+    if('content' in template) {
+        var ownerDocument = document.currentScript.ownerDocument;
+        var component = ownerDocument.querySelector('#flashTextComponent');
+
+        var templatePrototype = Object.create(HTMLElement.prototype);
+
+        templatePrototype.createdCallback = function () {
+            var root = this.createShadowRoot();
+            root.appendChild(document.importNode(component.content, true));
+
+            var name = root.querySelector('.text');
+            name.textContent = this.getAttribute('data-text');
+
+            setInterval(function(){
+                name.style.visibility = (name.style.visibility == 'hidden' ? '' : 'hidden');
+            }, 1000);
+        };
+
+        // Register our new element
+        var flashText = document.registerElement('flash-text', {
+            prototype: templatePrototype
+        });
+    }
+    else {
+        // content not supported
+    }
+</script>
