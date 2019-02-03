@@ -98,3 +98,5 @@ obj
 /MyWebApp/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst
 /MyWebApp/target
 /MyWebApp/web/WEB-INF/classes
+/Openfin/InterApplicationBus/ControllerApp/packages
+/Openfin/InterApplicationBus/MainApp/packages
