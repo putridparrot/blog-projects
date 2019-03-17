@@ -1,0 +1,23 @@
+schema {
+    query: Query
+    mutation: Mutation
+    subscription : Subscription
+}
+
+type Query {
+    people: [Person]
+    find(input: String!) : Person
+}
+
+type Mutation {
+    addPerson(input: String) : Person
+}
+
+type Subscription {
+    personAdded : Person
+}
+
+type Person {
+    name: String!
+}
+
