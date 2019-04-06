@@ -100,3 +100,8 @@ obj
 /MyWebApp/web/WEB-INF/classes
 /Openfin/InterApplicationBus/ControllerApp/packages
 /Openfin/InterApplicationBus/MainApp/packages
+/Eureka/eurekatest/.mvn
+/Eureka/eurekatest/.idea
+/GraphQLJava/.mvn
+/ExecutorServiceSample/.idea
+/ExecutorServiceSample/out/production/ExecutorServiceSample/com/putridparrot/*.class
