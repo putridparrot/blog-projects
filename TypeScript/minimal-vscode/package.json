@@ -1,0 +1,9 @@
+{
+  "name": "playground1",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "@types/node": "^12.0.2"
+  }
+}
