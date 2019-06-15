@@ -5,9 +5,9 @@ const App: React.FC = (): ReactElement => (
   <div className="App">
     <header className="App-header">
       <p>
-          Edit
+        Edit
         <code>src/App.tsx</code>
-          and save to reload.
+        and save to reload.
       </p>
       <a
         className="App-link"
@@ -15,7 +15,7 @@ const App: React.FC = (): ReactElement => (
         target="_blank"
         rel="noopener noreferrer"
       >
-          Learn React
+        Learn React
       </a>
     </header>
   </div>

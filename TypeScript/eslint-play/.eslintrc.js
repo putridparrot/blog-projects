@@ -1,10 +1,15 @@
 module.exports =  {
     parser:  '@typescript-eslint/parser',  // Specifies the ESLint parser
-    plugins: ['@typescript-eslint'],
+    plugins: [
+      '@typescript-eslint',
+      'prettier'
+    ],
     extends:  [
       'plugin:react/recommended',  // Uses the recommended rules from @eslint-plugin-react
       'plugin:@typescript-eslint/recommended',  // Uses the recommended rules from @typescript-eslint/eslint-plugin
       'airbnb-typescript',
+      'prettier',
+      'plugin:prettier/recommended'
     ],
     parserOptions:  {
         ecmaVersion:  2018,  // Allows for the parsing of modern ECMAScript features
@@ -15,6 +20,7 @@ module.exports =  {
     },
     rules:  {
         '@typescript-eslint/interface-name-prefix': 'warn',
+        'prettier/prettier': 'error'
     },
     settings:  {
       react:  {
