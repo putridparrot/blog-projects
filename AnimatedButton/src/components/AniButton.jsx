@@ -1,5 +1,4 @@
 import React from "react";
-//import "./AniButton.css";
 import anime from "animejs";
 
 const styles = {
@@ -58,9 +57,6 @@ const styles = {
     strokeLinejoin: "round",
     opacity: "0"
   }   
-}
-
-function AnimatedButton(props) {
 }
 
 export class AniButton extends React.Component {
@@ -140,8 +136,6 @@ export class AniButton extends React.Component {
         </svg>
       </main>
     )
- 
-//    return <AnimatedButton />
   }
 }
 
