@@ -1,6 +1,67 @@
 import React from "react";
-import "./AniButton.css";
+//import "./AniButton.css";
 import anime from "animejs";
+
+const styles = {
+  main: {
+    height: "100vh",
+    width: "100vw"
+  },
+  button: {
+    background: "#2B2D2F",
+    height: "80px",
+    width: "200px",
+    textAlign: "center",
+    position: "absolute",
+    top: "50%",
+    transform: "translateY(-50%)",
+    left: "0",
+    right: "0",
+    margin: "0 auto",
+    cursor: "pointer",
+    borderRadius: "4px"
+  },
+  text: {
+    font: "bold 1.25rem/1 poppins",
+    color: "#71DFBE",
+    position: "absolute",
+    top: "50%",
+    transform: "translateY(-52%)",
+    left: "0",
+    right: "0"
+  },
+  progress: {
+    position: "absolute",
+    height: "10px",
+    width: "0",
+    right: "0",
+    top: "50%",
+    left: "50%",
+    borderRadius: "200px",
+    transform: "translateY(-50%) translateX(-50%)",
+    background: "gray",
+  },
+  svg: {
+    width: "30px",
+    position: "absolute",
+    top: "50%",
+    transform: "translateY(-50%) translateX(-50%)",
+    left: "50%",
+    right: "0",
+    enableBackground: "new 0 0 25 30"
+  },
+  check: {
+    fill: "none",
+    stroke: "#FFFFFF",
+    strokeWidth: "3",
+    strokeLinecap: "round",
+    strokeLinejoin: "round",
+    opacity: "0"
+  }   
+}
+
+function AnimatedButton(props) {
+}
 
 export class AniButton extends React.Component {
 
@@ -68,17 +129,19 @@ export class AniButton extends React.Component {
 
   render() {
     return (
-      <main>
-        <div className="button" onClick={this.handleOnClick}>
-          <div className="text" onClick={this.handleOnClick}>Submit</div>
+      <main style={styles.main}>
+        <div className="button" style={styles.button} onClick={this.handleOnClick}>
+          <div className="text" style={styles.text} onClick={this.handleOnClick}>Submit</div>
         </div>
-        <div className="progress"></div>
+        <div className="progress" style={styles.progress}></div>
         <svg x="0px" y="0px"
-          viewBox="0 0 25 30">
-          <path ref={this.checkRef} className="check st0" d="M2,19.2C5.9,23.6,9.4,28,9.4,28L23,2" />
+          viewBox="0 0 25 30" style={styles.svg}>
+          <path ref={this.checkRef} style={styles.check} className="check st0" d="M2,19.2C5.9,23.6,9.4,28,9.4,28L23,2" />
         </svg>
       </main>
     )
+ 
+//    return <AnimatedButton />
   }
 }
 
