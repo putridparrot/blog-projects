@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:extensions="clr-namespace:MatTestMobile.Extensions;assembly=MatTestMobile"
+             mc:Ignorable="d"
+             x:Class="MatTestMobile.MainPage">
+
+    <StackLayout VerticalOptions="Center" Margin="10">
+        <Label Text="{extensions:Translate Welcome}" FontSize="Large" HorizontalOptions="Center" Margin="0,0,0,50"/>
+        <Grid HorizontalOptions="Center" Margin="10" WidthRequest="600">
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <Entry Grid.Row="0" Placeholder="{extensions:Translate Username}" />
+            <Entry Grid.Row="1" Placeholder="{extensions:Translate Password}" />
+        </Grid>
+        <Button Text="{extensions:Translate Login}" HorizontalOptions="Center" Margin="0,50,0,0"/>
+    </StackLayout>
+</ContentPage>
