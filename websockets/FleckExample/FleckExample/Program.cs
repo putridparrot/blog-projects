@@ -12,7 +12,12 @@ namespace FleckExample
             var websocketServer = new WebSocketServer("ws://0.0.0.0:8181");
             websocketServer.Start(connection =>
             {
-                connection.OnOpen = () => Console.WriteLine("OnOpen");
+                connection.OnOpen = () =>
+                {
+                    Console.WriteLine("OnOpen");
+                    Console.WriteLine(connection.ConnectionInfo.Id);
+                    Console.WriteLine(connection.ConnectionInfo.Path);
+                };
                 connection.OnClose = () => Console.WriteLine("OnClose");
                 connection.OnMessage = message =>
                 {

@@ -1,0 +1,4 @@
+/.vs
+/KestrelWebsockets/bin
+/KestrelWebsockets/obj
+/KestrelWebsockets/*.user
