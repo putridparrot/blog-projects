@@ -105,3 +105,4 @@ obj
 /GraphQLJava/.mvn
 /ExecutorServiceSample/.idea
 /ExecutorServiceSample/out/production/ExecutorServiceSample/com/putridparrot/*.class
+/AnimatedButton/.eslintcache
