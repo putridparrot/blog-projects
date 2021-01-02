@@ -1,0 +1,10 @@
+{
+  "compilerOptions": {
+    "target": "ES5",
+    "outDir": "./public",
+    "rootDir": "./src"
+  },
+  "include": [
+    "src"
+  ]
+}
