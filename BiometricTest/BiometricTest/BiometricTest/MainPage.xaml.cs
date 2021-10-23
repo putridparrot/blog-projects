@@ -25,16 +25,16 @@ namespace BiometricTest
                     new AuthenticationRequestConfiguration("Login", "Access your account"));
                 if (result.Authenticated)
                 {
-                    await DisplayAlert("Success", "Authenticated", "Ok");
+                    await DisplayAlert("Success", "Authenticated", "OK");
                 }
                 else
                 {
-                    await DisplayAlert("Failure", "Not Authenticated", "Ok");
+                    await DisplayAlert("Failure", "Not Authenticated", "OK");
                 }
             }
             else
             {
-                await DisplayAlert("Failure", "Biometrics not available", "Ok");
+                await DisplayAlert("Failure", "Biometrics not available", "OK");
             }
         }
     }
