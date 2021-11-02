@@ -107,3 +107,14 @@ obj
 /ExecutorServiceSample/out/production/ExecutorServiceSample/com/putridparrot/*.class
 /AnimatedButton/.eslintcache
 /React/rxjs-sample/.eslintcache
+cmake-build-debug
+.idea
+.gradle
+/HelloWorld/HelloWorldKotlin/build
+/HelloWorld/HelloWorldJava/out
+/HelloWorld/HelloWorldPython/venv
+/HelloWorld/HelloWorldRust/target
+/HelloWorld/HelloWorldScala/target
+/HelloWorld/HelloWorldScala/project
+/HelloWorld/HelloWorldKotlin/gradle
+/HelloWorld/HelloWorldScala/.bsp
