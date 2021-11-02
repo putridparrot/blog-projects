@@ -9,7 +9,7 @@
     <description />
 
     <properties>
-        <tomcat.version>9.0.0.M6</tomcat.version>
+        <tomcat.version>9.0.43</tomcat.version>
     </properties>
 
     <build>
