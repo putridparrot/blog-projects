@@ -118,3 +118,5 @@ cmake-build-debug
 /HelloWorld/HelloWorldScala/project
 /HelloWorld/HelloWorldKotlin/gradle
 /HelloWorld/HelloWorldScala/.bsp
+playground.xcworkspace
+/SwiftBasics/Generics.playground/playground.xcworkspace
