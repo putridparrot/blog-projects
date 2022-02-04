@@ -1,0 +1,9 @@
+/* Localizable.strings
+  LocalizationApp
+
+  Created by Mark Timmings on 04/02/2022. */
+"hello-world" = "Bonjour le monde";
+
+/* (No Comment) */
+"my-name %@" = "Mon nom est %@";
+
