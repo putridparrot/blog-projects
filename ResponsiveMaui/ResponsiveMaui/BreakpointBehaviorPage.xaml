@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:extensions="clr-namespace:ResponsiveMaui.Extensions"
+             x:Class="ResponsiveMaui.BreakpointBehaviorPage"
+             Title="BreakpointBehaviorPage">
+    <ContentPage.Behaviors>
+        <extensions:BreakpointBehavior />
+    </ContentPage.Behaviors>
+
+    <VisualStateManager.VisualStateGroups>
+        <VisualStateGroup x:Name="Responsive">
+            <VisualState x:Name="ExtraExtraLarge">
+                <VisualState.Setters>
+                    <Setter Property="BackgroundColor" Value="LightGray"/>
+
+                    <Setter TargetName="MainLabel" Property="Label.TextColor" Value="Black"/>
+                    <Setter TargetName="MainLabel" Property="Label.FontSize" Value="128"/>
+                </VisualState.Setters>
+            </VisualState>
+            <VisualState x:Name="Large">
+                <VisualState.Setters>
+                    <Setter Property="BackgroundColor" Value="Blue"/>
+
+                    <Setter TargetName="MainLabel" Property="Label.TextColor" Value="Green"/>
+                    <Setter TargetName="MainLabel" Property="Label.FontSize" Value="96"/>
+                </VisualState.Setters>
+            </VisualState>
+            <VisualState x:Name="Medium">
+                <VisualState.Setters>
+                    <Setter Property="BackgroundColor" Value="Azure"/>
+
+                    <Setter TargetName="MainLabel" Property="Label.TextColor" Value="Red"/>
+                    <Setter TargetName="MainLabel" Property="Label.FontSize" Value="48"/>
+
+                </VisualState.Setters>
+            </VisualState>
+        </VisualStateGroup>
+    </VisualStateManager.VisualStateGroups>
+
+    <Grid>
+        <Label x:Name="MainLabel"
+               Text="My Application"
+               VerticalOptions="Center" 
+               HorizontalOptions="Center" />
+    </Grid>
+</ContentPage>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ResponsiveMaui.AdaptiveTriggerBreakpointsNewPage"
+             Title="AdaptiveTriggerBreakpointsNewPage">
+    <ContentPage.Resources>
+        <x:Double x:Key="ExtraSmall">0</x:Double>
+        <x:Double x:Key="Small">576</x:Double>
+        <x:Double x:Key="Medium">768</x:Double>
+        <x:Double x:Key="Large">992</x:Double>
+        <x:Double x:Key="ExtraLarge">1200</x:Double>
+        <x:Double x:Key="ExtraExtraLarge">1400</x:Double>
+    </ContentPage.Resources>
+
+    <VisualStateManager.VisualStateGroups>
+        <VisualStateGroup x:Name="Responsive">
+            <VisualState x:Name="Large">
+                <VisualState.StateTriggers>
+                    <AdaptiveTrigger MinWindowWidth="{StaticResource Large}" />
+                </VisualState.StateTriggers>
+                <VisualState.Setters>
+                    <Setter Property="BackgroundColor" Value="Blue"/>
+
+                    <Setter TargetName="MainLabel" Property="Label.TextColor" Value="Green"/>
+                    <Setter TargetName="MainLabel" Property="Label.FontSize" Value="128"/>
+                </VisualState.Setters>
+            </VisualState>
+            <VisualState x:Name="Default">
+                <VisualState.StateTriggers>
+                    <AdaptiveTrigger MinWindowWidth="{StaticResource ExtraSmall}" />
+                </VisualState.StateTriggers>
+                <VisualState.Setters>
+                    <Setter Property="BackgroundColor" Value="Azure"/>
+
+                    <Setter TargetName="MainLabel" Property="Label.TextColor" Value="Red"/>
+                    <Setter TargetName="MainLabel" Property="Label.FontSize" Value="48"/>
+
+                </VisualState.Setters>
+            </VisualState>
+        </VisualStateGroup>
+    </VisualStateManager.VisualStateGroups>
+
+    <Grid>
+        <Label x:Name="MainLabel"
+               Text="My Application"
+               VerticalOptions="Center" 
+               HorizontalOptions="Center" />
+    </Grid>
+
+</ContentPage>

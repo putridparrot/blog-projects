@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:extensions="clr-namespace:ResponsiveMaui.Extensions"
+             x:Class="ResponsiveMaui.AdaptivePage"
+             Title="AdaptivePage">
+    <ContentPage.Resources>
+        <DataTemplate x:Key="Portrait">
+            <VerticalStackLayout>
+                <VisualStateManager.VisualStateGroups>
+                    <VisualStateGroup x:Name="Responsive">
+                        <VisualState x:Name="Medium">
+                            <VisualState.Setters>
+                                <Setter Property="BackgroundColor" Value="Blue"/>
+
+                                <Setter TargetName="MainLabel" Property="Label.TextColor" Value="Green"/>
+                                <Setter TargetName="MainLabel" Property="Label.FontSize" Value="128"/>
+                            </VisualState.Setters>
+                        </VisualState>
+                        <VisualState x:Name="Small">
+                            <VisualState.Setters>
+                                <Setter Property="BackgroundColor" Value="Azure"/>
+
+                                <Setter TargetName="MainLabel" Property="Label.TextColor" Value="Red"/>
+                                <Setter TargetName="MainLabel" Property="Label.FontSize" Value="48"/>
+
+                            </VisualState.Setters>
+                        </VisualState>
+                    </VisualStateGroup>
+                </VisualStateManager.VisualStateGroups>
+
+                <Label x:Name="MainLabel"
+                       Text="My Application Portrait"
+                       VerticalOptions="Center" 
+                       HorizontalOptions="Center" />
+            </VerticalStackLayout>
+        </DataTemplate>
+        <DataTemplate x:Key="Landscape">
+            <Grid>
+                <VisualStateManager.VisualStateGroups>
+                    <VisualStateGroup x:Name="Responsive">
+                        <VisualState x:Name="ExtraExtraLarge">
+                            <VisualState.Setters>
+                                <Setter Property="BackgroundColor" Value="Blue"/>
+
+                                <Setter TargetName="MainLabel" Property="Label.TextColor" Value="Green"/>
+                                <Setter TargetName="MainLabel" Property="Label.FontSize" Value="128"/>
+                            </VisualState.Setters>
+                        </VisualState>
+                        <VisualState x:Name="Medium">
+                            <VisualState.Setters>
+                                <Setter Property="BackgroundColor" Value="Azure"/>
+
+                                <Setter TargetName="MainLabel" Property="Label.TextColor" Value="Red"/>
+                                <Setter TargetName="MainLabel" Property="Label.FontSize" Value="48"/>
+
+                            </VisualState.Setters>
+                        </VisualState>
+                    </VisualStateGroup>
+                </VisualStateManager.VisualStateGroups>
+
+                <Label x:Name="MainLabel"
+                       Text="My Application Landscape"
+                       VerticalOptions="Center" 
+                       HorizontalOptions="Center" />
+            </Grid>
+        </DataTemplate>
+        <extensions:OrientationDataTemplateSelector x:Key="OrientedView"
+            Landscape="{StaticResource Landscape}" 
+            Portrait="{StaticResource Portrait}" />
+    </ContentPage.Resources>
+
+    <ContentPage.Behaviors>
+        <extensions:AdaptableBehavior OrientationTemplateSelector="{StaticResource OrientedView}" />
+    </ContentPage.Behaviors>
+
+</ContentPage>

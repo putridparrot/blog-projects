@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:extensions="clr-namespace:ResponsiveMaui.Extensions"
+             x:Class="ResponsiveMaui.OnOrientationPage"
+             Title="OnOrientationPage">
+    <extensions:OnOrientation>
+        <extensions:OnOrientation.Portrait>
+            <VerticalStackLayout>
+                <Label Text="My Application Portrait"
+                       VerticalOptions="Center" 
+                       HorizontalOptions="Center" />
+            </VerticalStackLayout>
+        </extensions:OnOrientation.Portrait>
+        <extensions:OnOrientation.Landscape>
+            <Grid>
+                <Label 
+                    Text="My Application Landscape"
+                    VerticalOptions="Center" 
+                    HorizontalOptions="Center" />
+            </Grid>
+        </extensions:OnOrientation.Landscape>
+    </extensions:OnOrientation>
+
+</ContentPage>
