@@ -11,4 +11,5 @@ M5Core2.InitializeScreen();
 // DevicePowerInfo.Run();
 // TouchCapabilities.Run();
 // VibrationFeedback.Run();
+
 M5WebServer.Run();

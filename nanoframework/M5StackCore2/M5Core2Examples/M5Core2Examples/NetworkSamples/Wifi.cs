@@ -18,7 +18,7 @@ namespace M5Core2Examples.NetworkSamples
             return Connect();
         }
 
-        private static bool Connect()
+        public static bool Connect()
         {
             var cs = new CancellationTokenSource(60000);
             var success = WifiNetworkHelper.ConnectDhcp(SSID, PASSWORD, requiresDateTime: true, token: cs.Token);
@@ -32,11 +32,12 @@ namespace M5Core2Examples.NetworkSamples
 
                 return false;
             }
+
             Debug.WriteLine("Connected successfully");
             return true;
         }
 
-        private static bool Reconnect()
+        public static bool Reconnect()
         {
             var cs = new CancellationTokenSource(60000);
             var success = WifiNetworkHelper.Reconnect(requiresDateTime: true, token: cs.Token);
@@ -50,7 +51,7 @@ namespace M5Core2Examples.NetworkSamples
 
                 return false;
             }
-            Debug.WriteLine("Connected successfully");
+            Debug.WriteLine("Reconnected successfully");
             return true;
         }
     }

@@ -1,6 +1,9 @@
 ﻿using System.Net;
+using System.Net.NetworkInformation;
+using System.Text;
 using System.Threading;
 using M5Core2Examples.NetworkSamples;
+using nanoFramework.M5Stack;
 using nanoFramework.WebServer;
 
 namespace M5Core2Examples.ServerSamples
@@ -10,8 +13,10 @@ namespace M5Core2Examples.ServerSamples
         public static void Run()
         {
             // connect to Wifi
-            if (!Wifi.Run())
+            if (!Wifi.Reconnect())
                 return;
+
+            Console.WriteLine(IPGlobalProperties.GetIPAddress().ToString());
 
             using var server = new WebServer(80, HttpProtocol.Http, new[] { typeof(TestController) });
 
@@ -21,22 +26,35 @@ namespace M5Core2Examples.ServerSamples
         }
     }
 
+   
     public class TestController
     {
-        [Route("test"), Route("Test2"), Route("tEst42"), Route("TEST")]
-        [CaseSensitive]
+        [Route("power")]
         [Method("GET")]
-        public void RoutePostTest(WebServerEventArgs e)
+        public void RouteDevice(WebServerEventArgs e)
         {
-            string route = $"The route asked is {e.Context.Request.RawUrl.TrimStart('/').Split('/')[0]}";
-            e.Context.Response.ContentType = "text/plain";
-            WebServer.OutPutStream(e.Context.Response, route);
-        }
+            var power = M5Core2.Power;
+           
+            var sb = new StringBuilder();
+            sb.AppendLine("Power:");
+            sb.AppendLine($"  Adc Frequency: {power.AdcFrequency}");
+            sb.AppendLine($"  Adc Pin Current: {power.AdcPinCurrent}");
+            sb.AppendLine($"  Adc Pin Current Setting: {power.AdcPinCurrentSetting}");
+            sb.AppendLine($"  Adc Pin Enabled: {power.AdcPinEnabled}");
+            sb.AppendLine($"  Batt. Temp. Monitor: {power.BatteryTemperatureMonitoring}");
+            sb.AppendLine($"  Charging Current: {power.ChargingCurrent}");
+            sb.AppendLine($"  Charging Stop Threshold: {power.ChargingStopThreshold}");
+            sb.AppendLine($"  Charging Voltage: {power.ChargingVoltage}");
+            sb.AppendLine($"  Dc Dc1 Voltage: {power.DcDc1Voltage.Millivolts} mV");
+            sb.AppendLine($"  Dc Dc2 Voltage: {power.DcDc2Voltage.Millivolts} mV");
+            sb.AppendLine($"  Dc Dc3 Voltage: {power.DcDc3Voltage.Millivolts} mV");
+            sb.AppendLine($"  EXTEN Enable: {power.EXTENEnable}");
+            sb.AppendLine($"  VOff Voltage: {power.VoffVoltage}");
+            sb.AppendLine($"  Gpio0 Behavior: {power.Gpio0Behavior}");
+            sb.AppendLine($"  Gpio0 Value: {power.Gpio0Value}");
 
-        [Route("test/any")]
-        public void RouteAnyTest(WebServerEventArgs e)
-        {
-            WebServer.OutputHttpCode(e.Context.Response, HttpStatusCode.OK);
+            e.Context.Response.ContentType = "text/plain";
+            WebServer.OutPutStream(e.Context.Response, sb.ToString());
         }
     }
 }
