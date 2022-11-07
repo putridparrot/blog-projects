@@ -1,17 +1,19 @@
-﻿
-
+﻿using System.Net;
 using System.Threading;
-using System;
+using M5Core2Examples.NetworkSamples;
 using nanoFramework.WebServer;
-using System.Net;
 
-namespace M5Core2Examples.Server
+namespace M5Core2Examples.ServerSamples
 {
     public static class M5WebServer
     {
         public static void Run()
         {
-            using WebServer server = new WebServer(80, HttpProtocol.Http, new[] { typeof(TestController) });
+            // connect to Wifi
+            if (!Wifi.Run())
+                return;
+
+            using var server = new WebServer(80, HttpProtocol.Http, new[] { typeof(TestController) });
 
             server.Start();
 

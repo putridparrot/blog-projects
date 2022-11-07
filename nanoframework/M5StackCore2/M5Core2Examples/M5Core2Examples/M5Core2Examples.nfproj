@@ -23,8 +23,10 @@
     <Compile Include="LedSamples\Blinky.cs" />
     <Compile Include="MovementSamples\AccelerometerAndGyroscope.cs" />
     <Compile Include="NetworkSamples\Wifi.cs" />
+    <Compile Include="NetworkSamples\WifiCredentials.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ServerSamples\M5WebServer.cs" />
     <Compile Include="TextSamples\Text.cs" />
     <Compile Include="TouchSamples\TouchCapabilities.cs" />
     <Compile Include="VibrationSamples\VibrationFeedback.cs" />
@@ -78,6 +80,9 @@
     <Reference Include="nanoFramework.System.Text">
       <HintPath>..\packages\nanoFramework.System.Text.1.2.22\lib\nanoFramework.System.Text.dll</HintPath>
     </Reference>
+    <Reference Include="nanoFramework.WebServer">
+      <HintPath>..\packages\nanoFramework.WebServer.1.1.47\lib\nanoFramework.WebServer.dll</HintPath>
+    </Reference>
     <Reference Include="System.Buffers.Binary.BinaryPrimitives">
       <HintPath>..\packages\nanoFramework.System.Buffers.Binary.BinaryPrimitives.1.2.141\lib\System.Buffers.Binary.BinaryPrimitives.dll</HintPath>
     </Reference>
@@ -127,7 +132,7 @@
       <HintPath>..\packages\nanoFramework.System.Net.1.10.38\lib\System.Net.dll</HintPath>
     </Reference>
     <Reference Include="System.Net.Http">
-      <HintPath>..\packages\nanoFramework.System.Net.Http.Client.1.5.54\lib\System.Net.Http.dll</HintPath>
+      <HintPath>..\packages\nanoFramework.System.Net.Http.1.5.54\lib\System.Net.Http.dll</HintPath>
     </Reference>
     <Reference Include="System.Numerics">
       <HintPath>..\packages\nanoFramework.System.Numerics.1.2.144\lib\System.Numerics.dll</HintPath>
@@ -156,9 +161,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="ServerSamples\" />
   </ItemGroup>
   <Import Project="$(NanoFrameworkProjectSystemPath)NFProjectSystem.CSharp.targets" Condition="Exists('$(NanoFrameworkProjectSystemPath)NFProjectSystem.CSharp.targets')" />
   <ProjectExtensions>

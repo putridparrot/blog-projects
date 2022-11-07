@@ -11,7 +11,7 @@ namespace M5Core2Examples.HttpSamples
 {
     public static class CheerLights
     {
-        private static readonly HttpClient HttpClient = new HttpClient();
+        private static readonly HttpClient HttpClient = new();
 
         public static void Run()
         {

@@ -5,7 +5,7 @@ using nanoFramework.Networking;
 
 namespace M5Core2Examples.NetworkSamples
 {
-    internal static class Wifi
+    internal static partial class Wifi
     {
         public static bool Run()
         {
@@ -20,11 +20,8 @@ namespace M5Core2Examples.NetworkSamples
 
         private static bool Connect()
         {
-            const string ssid = "YourWifiSsidHere";
-            const string password = "YourWifiPasswordHere";
-
             var cs = new CancellationTokenSource(60000);
-            var success = WifiNetworkHelper.ConnectDhcp(ssid, password, requiresDateTime: true, token: cs.Token);
+            var success = WifiNetworkHelper.ConnectDhcp(SSID, PASSWORD, requiresDateTime: true, token: cs.Token);
             if (!success)
             {
                 Debug.WriteLine($"Can't connect to the network, error: {WifiNetworkHelper.Status}");
