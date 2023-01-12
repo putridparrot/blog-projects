@@ -189,3 +189,4 @@ fastlane/report.xml
 fastlane/Preview.html
 fastlane/screenshots/**/*.png
 fastlane/test_output
+/nanoframework/M5StackCore2/M5Core2Examples/packages
