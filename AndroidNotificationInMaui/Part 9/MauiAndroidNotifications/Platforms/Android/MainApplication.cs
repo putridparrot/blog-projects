@@ -7,14 +7,14 @@ namespace MauiAndroidNotifications;
 [Application]
 public class MainApplication : MauiApplication
 {
-    public static readonly string Group1Id = "group1";
-    public static readonly string Group2Id = "group2";
-    public static readonly string Channel1Id = "channel1";
-    public static readonly string Channel2Id = "channel2";
-    public static readonly string Channel3Id = "channel3";
-    public static readonly string Channel4Id = "channel4";
+    public const string Group1Id = "group1";
+    public const string Group2Id = "group2";
+    public const string Channel1Id = "channel1";
+    public const string Channel2Id = "channel2";
+    public const string Channel3Id = "channel3";
+    public const string Channel4Id = "channel4";
 
-    public static readonly string ToastMessage = "toastMessage";
+    public const string ToastMessage = "toastMessage";
 
     public MainApplication(IntPtr handle, JniHandleOwnership ownership)
 		: base(handle, ownership)
@@ -25,11 +25,6 @@ public class MainApplication : MauiApplication
     {
         base.OnCreate();
 
-        CreateNotificationChannels();
-    }
-
-    private void CreateNotificationChannels()
-    {
         if (Build.VERSION.SdkInt >= BuildVersionCodes.O)
         {
 #pragma warning disable CA1416
