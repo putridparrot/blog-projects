@@ -19,12 +19,10 @@ public class MainActivity : MauiAppCompatActivity
         {
             if (message.Channel == 1)
             {
-                // channel 1
                 SendOnChannel1(message.Title, message.Message);
             }
             else
             {
-                // channel 2
                 SendOnChannel2(message.Title, message.Message);
             }
         });

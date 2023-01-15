@@ -7,8 +7,8 @@ namespace MauiAndroidNotifications;
 [Application]
 public class MainApplication : MauiApplication
 {
-    public static readonly string Channel1Id = "channel1";
-    public static readonly string Channel2Id = "channel2";
+    public const string Channel1Id = "channel1";
+    public const string Channel2Id = "channel2";
 
     public MainApplication(IntPtr handle, JniHandleOwnership ownership)
 		: base(handle, ownership)
@@ -19,11 +19,6 @@ public class MainApplication : MauiApplication
     {
         base.OnCreate();
 
-        CreateNotificationChannels();
-    }
-
-    private void CreateNotificationChannels()
-    {
         if (Build.VERSION.SdkInt >= BuildVersionCodes.O)
         {
 #pragma warning disable CA1416

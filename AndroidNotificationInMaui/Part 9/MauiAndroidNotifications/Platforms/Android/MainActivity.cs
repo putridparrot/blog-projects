@@ -23,23 +23,20 @@ public class MainActivity : MauiAppCompatActivity
     public static List<Message> Messages = new List<Message>();
 
     private NotificationManagerCompat _notificationManager;
-    private readonly IMessenger _messenger;
     public MainActivity()
     {
         _receiver = new DirectReplyReceiver();
 
-        _messenger = MauiApplication.Current.Services.GetService<IMessenger>();
+        var messenger = MauiApplication.Current.Services.GetService<IMessenger>();
 
-        _messenger.Register<MessageData>(this, (recipient, message) =>
+        messenger.Register<MessageData>(this, (recipient, message) =>
         {
             if (message.Channel == 1)
             {
-                // channel 1
                 SendOnChannel1(this);
             }
             else
             {
-                // channel 2
                 SendOnChannel2();
             }
         });
