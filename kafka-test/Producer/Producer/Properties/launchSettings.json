@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "Producer": {
+      "commandName": "Project",
+      "commandLineArgs": "config.properties"
+    }
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "Consumer": {
+      "commandName": "Project",
+      "commandLineArgs": "config.properties"
+    }
+  }
+}
