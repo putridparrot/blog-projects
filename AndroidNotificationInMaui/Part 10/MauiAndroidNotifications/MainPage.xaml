@@ -4,8 +4,6 @@
              x:Class="MauiAndroidNotifications.MainPage">
 
     <VerticalStackLayout>
-        <Label Text="https://www.youtube.com/watch?v=tTbd1Mfi-Sk"></Label>
-
         <Entry Text="Title" x:Name="Title" Margin="10" />
         <Entry Text="Message" x:Name="Message" Margin="10" />
 
