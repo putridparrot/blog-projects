@@ -14,6 +14,10 @@ import React from "react";
 const drawerWidth = 240;
 
 export const NavBar = () => (
+  //const { count, increment } = useStore();
+  //div>{count} clicked</div> 
+  //<ListItemButton onClick={increment}>
+
   <Drawer
     variant="permanent"
     sx={{
