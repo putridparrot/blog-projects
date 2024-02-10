@@ -1,5 +1,7 @@
 
 using MediatR;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Net.Http.Headers;
 
 namespace MediatRSample
 {
@@ -39,6 +41,11 @@ namespace MediatRSample
             app.MapGet("/setlocation", (IMediator mediator, string location) =>
                     mediator.Publish(new SetLocation(location)))
                 .WithName("SetLocation")
+                .WithOpenApi();
+
+            app.MapGet("/stream", (IMediator mediator) =>
+                mediator.CreateStream(new GetWeatherStream()))
+            .WithName("Stream")
                 .WithOpenApi();
 
             app.Run();
