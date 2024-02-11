@@ -44,8 +44,8 @@ namespace MediatRSample
                 .WithOpenApi();
 
             app.MapGet("/stream", (IMediator mediator) =>
-                mediator.CreateStream(new GetWeatherStream()))
-            .WithName("Stream")
+                    mediator.CreateStream(new GetWeatherStream()))
+                .WithName("Stream")
                 .WithOpenApi();
 
             app.Run();
