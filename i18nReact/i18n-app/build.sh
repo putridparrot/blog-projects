@@ -1,0 +1,1 @@
+docker build -t i18n-app:0.1.0 .
