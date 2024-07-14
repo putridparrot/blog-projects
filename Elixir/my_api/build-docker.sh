@@ -1,0 +1,1 @@
+docker build -t pp/my-api:0.1.0 .

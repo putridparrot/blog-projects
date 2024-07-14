@@ -1,0 +1,1 @@
+docker run --rm --name my-api -p 7000:80 -d pp/my-api:0.1.0
