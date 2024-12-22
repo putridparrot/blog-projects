@@ -1,0 +1,16 @@
+﻿@page "/"
+@inject IJSRuntime JsRuntime
+
+<PageTitle>Home</PageTitle>
+
+
+<button class="btn btn-primary" @onclick="DisplayMessage">Alert me</button>
+
+@code{
+    private async Task DisplayMessage()
+    {
+        var module = await JsRuntime.InvokeAsync<IJSObjectReference>("import", "./scripts/Example.js");
+        var o = await module.InvokeAsync<IJSObjectReference>("getPromptInstance");
+        await o.InvokeVoidAsync("showAlert", "Hello TypeScript World");
+    }
+}

@@ -1,0 +1,10 @@
+{
+  "compilerOptions": {
+    "module": "ES2015",
+    "target": "ES2024",
+    "sourceMap": true
+  },
+  "exclude": [
+    "node_modules"
+  ]
+}
