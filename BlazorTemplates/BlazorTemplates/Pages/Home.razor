@@ -1,0 +1,73 @@
+﻿@page "/"
+@inject HttpClient Http
+
+<PageTitle>Home</PageTitle>
+
+@if (_forecasts == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <ListView Items="_forecasts">
+        <HeaderTemplate>
+            <div>Summary</div>
+        </HeaderTemplate>
+        <FooterTemplate>
+            <div>Footer</div>
+        </FooterTemplate>
+        <ListTemplate>
+            <ul>@context</ul>
+        </ListTemplate>
+        <ItemTemplate>
+            <li>@context.Summary</li>
+        </ItemTemplate>
+    </ListView>
+
+    <ListView Items="_forecasts">
+        <ListTemplate>
+            <ol>@context</ol>
+        </ListTemplate>
+        <ItemTemplate>
+            <li>@context.Summary</li>
+        </ItemTemplate>
+    </ListView>
+
+    <ListView Items="_forecasts">
+        <HeaderTemplate>
+            <thead><tr><th scope="col">Summary</th></tr></thead>
+        </HeaderTemplate>
+        <FooterTemplate>
+            <tfoot><tr><th scope="row">Footer</th></tr></tfoot>
+        </FooterTemplate>
+        <ListTemplate>
+            <table>
+                <caption>This is a table</caption>
+                <tbody>@context</tbody>
+            </table>
+        </ListTemplate>
+        <ItemTemplate>
+            <tr scope="row">@context.Summary</tr>
+        </ItemTemplate>
+    </ListView>
+}
+
+@code {
+    private WeatherForecast[]? _forecasts;
+
+    protected override async Task OnInitializedAsync()
+    {
+        _forecasts = await Http.GetFromJsonAsync<WeatherForecast[]>("sample-data/weather.json");
+    }
+
+    public class WeatherForecast
+    {
+        public DateOnly Date { get; set; }
+
+        public int TemperatureC { get; set; }
+
+        public string? Summary { get; set; }
+
+        public int TemperatureF => 32 + (int)(TemperatureC / 0.5556);
+    }
+}
