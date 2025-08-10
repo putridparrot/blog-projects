@@ -44,7 +44,7 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: echo_service
+  name: echo-service
   namespace: dev
   labels:
     app: echo
@@ -75,6 +75,6 @@ spec:
         pathType: Prefix
         backend:
           service:
-            name: echo_service
+            name: echo-service
             port:
               number: 80
