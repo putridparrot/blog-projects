@@ -13,7 +13,7 @@
 
     <properties>
         <cxf.version>3.0.1</cxf.version>
-        <spring.version>5.3.19</spring.version>
+        <spring.version>6.0.15</spring.version>
         <jetty.version>11.0.3</jetty.version>
         <json.version>1.1.0-M1</json.version>
         <glassfish.version>1.0.4</glassfish.version>
