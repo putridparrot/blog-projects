@@ -1,0 +1,9 @@
+[package]
+name = "wasm_app"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+leptos = { version = "0.8.6", features = ["csr"] }
+leptos_router = "0.8.5"
+leptos_meta = "0.8.5"
