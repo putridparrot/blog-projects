@@ -1,0 +1,1 @@
+docker run --rm --name echo_service -p 8080:8080 -d putridparrot.echo_service:v1

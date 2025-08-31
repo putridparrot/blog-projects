@@ -1,0 +1,4 @@
+{
+    "image": "elixir",
+    "forwardPorts": [3000]
+}
