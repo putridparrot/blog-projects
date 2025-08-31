@@ -1,0 +1,1 @@
+docker build -t putridparrot.echo_service:v1 .
