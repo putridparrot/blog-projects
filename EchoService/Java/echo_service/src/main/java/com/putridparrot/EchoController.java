@@ -12,11 +12,11 @@ public class EchoController {
 
     @GetMapping("/readyz")
     public String readyz() {
-        return "READY";
+        return "OK";
     }
 
     @GetMapping("/livez")
     public String livez() {
-        return "ALIVE";
+        return "OK";
     }
 }
