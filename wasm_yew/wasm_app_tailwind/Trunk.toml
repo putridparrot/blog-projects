@@ -2,32 +2,7 @@
 address = "127.0.0.1"
 port = 8081
 
-#[[hooks]]
-#stage = "post_build"
-#command = "npx"
-#command_arguments = ["tailwindcss", "-i", "./styles/tailwind.css", "-o", "./app.css"]
-
 [[hooks]]
 stage = "pre_build"
 command = "powershell"
 command_arguments = ["-Command", "npx" , "@tailwindcss/cli -i ./styles/tailwind.css -o ./app.css"]
-
-#[[hooks]]
-#stage = "pre_build"
-#command = "echo"
-#command_arguments = ["Hello1", "Trunk2"]
-
-#[[hooks]]
-#stage = "pre_build"
-#command = "npx"
-#command_arguments = ["@tailwindcss/cli", "-i", "styles/tailwind.css", "-o", "app.css"]
-#cwd="."
-#command_arguments = ["-c", "Staging directory: $TRUNK_STAGING_DIR"]
-
-#[hooks.windows]
-#command = "cmd"
-#command_arguments = ["/c", "Staging directory: %TRUNK_STAGING_DIR%"]
-
-#[[hooks]]
-#stage = "post_build"
-#command = "echo Post"
