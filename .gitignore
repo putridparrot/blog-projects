@@ -190,3 +190,11 @@ fastlane/Preview.html
 fastlane/screenshots/**/*.png
 fastlane/test_output
 /nanoframework/M5StackCore2/M5Core2Examples/packages
+/EchoService/Rust/echo_service/target
+/EchoService/Node/EchoService/node_modules
+/wasm_leptos/wasm_app/target
+/wasm_yew/wasm_app_tailwind/node_modules
+/rust_grpc/rust_grpc/target
+/wasm_yew/rocket_sample/target
+/rocket_sample/target
+/rust_logging/target
