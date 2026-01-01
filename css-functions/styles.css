@@ -1,0 +1,42 @@
+:root {
+  --blue: blue;
+}
+
+@function --responsive(--sm <color>: blue, --md <color>: green, --lg <color>: red) returns <color> {
+  result: var(--lg);
+
+  @media(width <= 600px) {
+    result: var(--sm);
+  }
+  @media(width > 600px) and (width <= 800px) {
+    result: var(--md);
+  }
+  @media(width > 800px) {
+    result: var(--lg);
+  }
+}
+
+@function --opacity(--color, --opacity type(<number> | <percentage>): 0.5) returns <color> {
+  result: rgb(from var(--color) r g b / var(--opacity));
+}
+
+div {
+  width: 200px;
+  height: 200px;
+  background: --opacity(blue, 0.3);
+  /* background: --responsive(blue, green) */
+  /* background: --responsive(
+    blue,
+    green,
+    red); */
+}
+
+body {
+  background:  white;
+}
+
+.browser-support {
+  @supports (color: --opacity(blue, 10%)) {
+    display: none;
+  }
+}

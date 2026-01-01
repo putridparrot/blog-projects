@@ -198,3 +198,11 @@ fastlane/test_output
 /wasm_yew/rocket_sample/target
 /rocket_sample/target
 /rust_logging/target
+/rust_cancellation_token/target
+/rust_simple_ioc/target
+/wasm_leptos/wasm_app/dist
+/rust_request/target
+/rust_actix/target
+/rust_attribute/test_app/target
+/rust_attribute/attribute/target
+/k8s-cronjob/crj/target
