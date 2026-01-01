@@ -12,12 +12,18 @@ defmodule HelloWorld.Application do
       # {HelloWorld.Worker, arg}
     ]
 
-    IO.puts Simple.Messages.say_hello_scooby()
+#    IO.puts Simple.Messages.say_hello_scooby()
 
 #    IO.puts Simple.Messages.say_hello("Scooby")
 #    anon = fn (name) -> "Hello #{name}" end
     #anon = &(name) "Hello #{name}"
     #IO.puts anon.("Scooby")
+    anon = &("Hello #{&1}")
+    IO.puts anon.("Scooby")
+
+    # list
+    list = [:one, 2, "Three"]
+    Enum.each(list, &(IO.puts &1))
 
     # See https://hexdocs.pm/elixir/Supervisor.html
     # for other strategies and supported options

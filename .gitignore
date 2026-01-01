@@ -206,3 +206,7 @@ fastlane/test_output
 /rust_attribute/test_app/target
 /rust_attribute/attribute/target
 /k8s-cronjob/crj/target
+/cargo_tests/target
+/HelloWorld/HelloWorldHaskell/.stack-work
+/HelloWorld/HelloWorldHaskell/main.o
+/HelloWorld/HelloWorldHaskell/main.exe

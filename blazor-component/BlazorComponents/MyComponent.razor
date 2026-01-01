@@ -1,0 +1,14 @@
+﻿<h3>Welcome to My Component</h3>
+
+<button @onclick="UpdateCounter">OK</button>
+
+<div>@_counter</div>
+
+@code {
+    int _counter = 0;
+
+    private void UpdateCounter()
+    {
+        _counter++;
+    }
+}

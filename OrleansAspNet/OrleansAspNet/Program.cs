@@ -1,3 +1,5 @@
+using Orleans.Hosting;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -13,6 +15,10 @@ builder.Host.UseOrleans(silo =>
         options.HostSelf = true;
         options.Port = 7000;
     });
+
+    silo.UseKubernetesHosting();
+    //silo.UseKubeMembership(); // from Orleans.Clustering.Kubernetes
+    silo.ConfigureEndpoints(siloPort: 11111, gatewayPort: 30000);
 });
 
 //builder.Services.AddOrleansClient(client =>
@@ -44,5 +50,9 @@ app.UseHttpsRedirection();
 app.UseAuthorization();
 
 app.MapControllers();
+
+//app.UseHttpMetrics();
+//app.MapMetrics(); // exposes /metrics endpoint
+
 
 app.Run();
