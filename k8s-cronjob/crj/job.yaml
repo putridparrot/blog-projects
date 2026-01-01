@@ -1,0 +1,13 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: one-time-job
+  namespace: dev
+spec:
+  ttlSecondsAfterFinished: 300  # Deletes Job and its Pods 5 minutes after completion
+  template:
+    spec:
+      containers:
+      - name: one-time-jobb
+        image: putridparrotacr.azurecr.io/putridparrot/crj:1.0.0
+      restartPolicy: Never

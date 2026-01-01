@@ -1,0 +1,15 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: scheduled-job
+  namespace: dev
+spec:
+  schedule: "*/5 * * * *" # every 5 minutes
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+            - name: scheduled-job
+              image:  putridparrotacr.azurecr.io/putridparrot/crj:1.0.0
+          restartPolicy: Never
