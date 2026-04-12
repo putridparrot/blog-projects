@@ -1,0 +1,82 @@
+.app {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 2rem 1rem 3rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+h1 {
+  margin: 0;
+  font-size: 2rem;
+}
+
+.subtitle {
+  margin: 0.5rem 0 1.5rem;
+  color: #475569;
+}
+
+.controls {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+button {
+  border: 1px solid #2563eb;
+  background: #2563eb;
+  color: #ffffff;
+  padding: 0.5rem 0.85rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  font-size: 0.95rem;
+}
+
+button:disabled {
+  background: #93c5fd;
+  border-color: #93c5fd;
+  cursor: not-allowed;
+}
+
+.status {
+  margin: 1rem 0;
+}
+
+.event-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border: 1px solid #cbd5e1;
+  border-radius: 0.5rem;
+  max-height: 26rem;
+  overflow: auto;
+}
+
+.event-list li {
+  padding: 0.8rem 1rem;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.event-list li:last-child {
+  border-bottom: 0;
+}
+
+.row {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.id {
+  color: #1d4ed8;
+  font-weight: 700;
+}
+
+time {
+  display: block;
+  margin-top: 0.3rem;
+  color: #64748b;
+  font-size: 0.85rem;
+}
+
+.empty {
+  color: #64748b;
+}
